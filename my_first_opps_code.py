@@ -14,7 +14,7 @@ class Student:
         print("Student Marks," , self.name ,self.maths, self.chemistry,self.physics)
         print("average marks of Student, ", self.name, (self.maths+self.chemistry+self.physics)/3)
 
-    def Avg_Sub(self):
+    
 
 s1=Student("Yash",99,92,93)
 
