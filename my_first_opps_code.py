@@ -1,4 +1,4 @@
-
+//mi mac ahe
 class Student:
     college_name= "pratibha college"
 
