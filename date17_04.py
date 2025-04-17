@@ -27,18 +27,19 @@ while True:
         break
 
 
-    if choice in ['1','2','3','4']:
+    if choice in [1,2,3,4]:
         try:
             num1 = float(input("enter your first number :"))
             num2 = float(input("enter your seccond number :"))
         except ValueError:
             print("enter only numbers")
             continue
-        if choice =='1':
+        if choice ==1:
             print("result :"+ add(num1,num2))
-        if choice =='2':
+        if choice ==2:
             print("result:"+ subs(num1,num2))
-        if choice =='3':
+        if choice ==3:
             print("result :"+ mul(num1,num2))
-        if choice =='4':
+        if choice ==4:
             print("result :"+ dev(num1,num2))
+
