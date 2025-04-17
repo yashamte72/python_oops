@@ -25,8 +25,14 @@ s2=Student("Vikas",69,45,76)
 s3=Student("Akash",95,83,88)
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 s3.average()
+=======
+s1.average()
+s3.average()
+s2.average()
+>>>>>>> Stashed changes
 =======
 s1.average()
 s3.average()
