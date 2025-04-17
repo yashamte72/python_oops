@@ -13,7 +13,7 @@ def dev(a,b):
     return a/b
 
 while True:
-    print(/n"welcome to simple calculator")
+    print("welcome to simple calculator")
     print("1.addition")
     print("2.substraction")
     print("3.multiplication")
@@ -24,4 +24,21 @@ while True:
 
     if choice == 5:
         print("goodbye! may we meet again")
-        
+        break
+
+
+    if choice in ['1','2','3','4']:
+        try:
+            num1 = float(input("enter your first number :"))
+            num2 = float(input("enter your seccond number :"))
+        except ValueError:
+            print("enter only numbers")
+            continue
+        if choice =='1':
+            print("result :"+ add(num1,num2))
+        if choice =='2':
+            print("result:"+ subs(num1,num2))
+        if choice =='3':
+            print("result :"+ mul(num1,num2))
+        if choice =='4':
+            print("result :"+ dev(num1,num2))
