@@ -147,5 +147,51 @@ alter table student
 drop column grade;
 
 truncate table student;
-
+drop table student;
 select * from student;
+
+
+CREATE TABLE student (
+    id INT,
+    name VARCHAR(50)
+);
+CREATE TABLE course (
+    id INT,
+    name VARCHAR(50)
+);
+INSERT INTO student (id, name) VALUES
+(1, 'Amit Sharma'),
+(2, 'Riya Mehta'),
+(3, 'Kunal Rao'),
+(4, 'Neha Das'),
+(2, 'Riya Mehta'),      -- duplicate id and name
+(5, 'Amit Sharma');     -- duplicate name, different id
+
+INSERT INTO course (id, name) VALUES
+(11, 'Mathematics'),
+(2, 'Physics'),
+(3, 'Computer Science'),
+(14, 'History'),
+(1, 'Mathematics'),   -- duplicate id and name
+(105, 'Computer Science'); -- duplicate name, different id
+
+truncate table course;
+select * from student as s
+inner join course as c
+on s.id = c.id;
+
+select * from student as s
+left join course as c
+on s.id = c.id;
+
+select * from student as s
+right join course as c
+on s.id = c.id;
+
+select * from student as s
+left join course as c
+on s.id = c.id
+union
+select * from student as s
+right join course as c
+on s.id = c.id;
