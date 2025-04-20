@@ -132,7 +132,16 @@ alter table student
 drop column stu_age;
 
 alter table student
-rename to stu;
+rename to stu;	
 
 alter table stu
 rename to student;
+
+alter table student
+change name full_name varchar (40);
+select * from student;
+
+delete from student
+where marks <75;
+
+truncate table student;
