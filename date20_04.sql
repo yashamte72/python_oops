@@ -5,7 +5,7 @@ CREATE TABLE student (
     grade CHAR(1),
     city VARCHAR(50)
 );
-INSERT INTO student (roll_no, name, marks, grade, city) VALUES
+INSERT INTO student (roll_no, full_name, marks, grade, city) VALUES
 (1, 'Amit Sharma', 85, 'A', 'Delhi'),
 (2, 'Sneha Verma', 78, 'B', 'Mumbai'),
 (3, 'Raj Mehta', 92, 'A', 'Ahmedabad'),
@@ -139,9 +139,13 @@ rename to student;
 
 alter table student
 change name full_name varchar (40);
-select * from student;
-
+ 
 delete from student
 where marks <75;
 
+alter table student
+drop column grade;
+
 truncate table student;
+
+select * from student;
