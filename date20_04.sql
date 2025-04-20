@@ -280,3 +280,38 @@ WHERE marks > 75.4286;
 SELECT name,marks
 FROM student
 WHERE marks > (SELECT AVG(marks) FROM student);
+
+
+SELECT roll_no,name
+FROM student
+WHERE roll_no % 2 = 0;
+
+SELECT name,roll_no 
+FROM student
+WHERE roll_no IN (SELECT roll_no
+					FROM student
+					WHERE roll_no % 2 = 0);
+                    
+                    
+SELECT * 
+FROM student
+WHERE city= "delhi";
+
+SELECT name,marks
+FROM student
+WHERE city IN (SELECT city 
+		FROM student
+		WHERE city= "delhi");
+        
+SELECT MAX(marks)
+FROM (SELECT * FROM student WHERE city= "delhi") as temp;
+
+CREATE VIEW view1 AS
+SELECT roll_no,name,marks from student;
+
+select * from view1;
+
+select * from view1
+where marks>90;
+
+drop view view1;
