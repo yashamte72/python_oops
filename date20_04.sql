@@ -5,7 +5,7 @@ CREATE TABLE student (
     grade CHAR(1),
     city VARCHAR(50)
 );
-INSERT INTO student (roll_no, full_name, marks, grade, city) VALUES
+INSERT INTO student (roll_no, name, marks, grade, city) VALUES
 (1, 'Amit Sharma', 85, 'A', 'Delhi'),
 (2, 'Sneha Verma', 78, 'B', 'Mumbai'),
 (3, 'Raj Mehta', 92, 'A', 'Ahmedabad'),
@@ -195,3 +195,88 @@ union
 select * from student as s
 right join course as c
 on s.id = c.id;
+
+select * from student as s
+left join course as c
+on s.id = c.id
+where c.id is null;
+
+select * 
+from student as s
+right join course as c
+on s.id=c.id
+where s.id is null;
+
+select *
+FROM student as s
+LEFT JOIN course as c
+on s.id = c.id 
+WHERE c.id IS NULL
+UNION
+SELECT *
+FROM student AS s
+RIGHT JOIN course AS c
+ON s.id = c.id
+where s.id IS NULL;
+
+
+CREATE TABLE emp (
+    id INT,
+    name VARCHAR(50),
+    manager INT
+);
+INSERT INTO emp (id, name, manager) VALUES
+(1, 'Ravi Kumar', NULL),      -- Top-level manager
+(2, 'Anita Sharma', 1),
+(3, 'Sunil Mehta', 1),
+(4, 'Divya Rao', 2),
+(5, 'Neha Singh', 2),
+(6, 'Karan Patel', 3),
+(7, 'Sneha Verma', 3);
+SELECT * FROM emp;
+
+SELECT e.name as manager , em.name as employee 
+FROM emp as e
+JOIN emp as em
+ON e.id = em.manager;
+
+SELECT * FROM emp
+UNION 
+SELECT * FROM emp;
+
+SELECT * FROM emp
+UNION ALL
+SELECT * FROM emp;
+
+drop table student;
+
+CREATE TABLE student (
+    roll_no INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT,
+    grade CHAR(1),
+    city VARCHAR(50)
+);
+INSERT INTO student (roll_no, name, marks, grade, city) VALUES
+(1, 'Amit Sharma', 85, 'A', 'Delhi'),
+(2, 'Sneha Verma', 78, 'B', 'Mumbai'),
+(3, 'Raj Mehta', 92, 'A', 'Ahmedabad'),
+(4, 'Priya Singh', 60, 'C', 'Lucknow'),
+(5, 'Kunal Rao', 70, 'B', 'Hyderabad'),
+(6, 'Neha Das', 88, 'A', 'Kolkata'),
+(7, 'Ravi Patil', 55, 'D', 'Pune');
+
+#sub query practice
+
+select * FROM student;
+
+SELECT AVG(marks) FROM student;
+
+SELECT name,marks
+FROM student
+WHERE marks > 75.4286;
+
+# after adding new tuples marks average may change to make it dynamic we have to use subquery
+SELECT name,marks
+FROM student
+WHERE marks > (SELECT AVG(marks) FROM student);
