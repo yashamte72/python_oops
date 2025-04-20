@@ -109,3 +109,30 @@ INSERT INTO student (roll_no, name, marks, grade, city) VALUES
 (5, 'Kunal Rao', 70, 'B', 'Hyderabad'),
 (6, 'Neha Das', 88, 'A', 'Kolkata'),
 (7, 'Ravi Patil', 55, 'D', 'Pune');
+
+Alter table student
+add column age int;
+
+alter table student
+drop column age;
+
+alter table student
+add column age int not null default 19;
+select * from student;
+
+alter table student
+modify column age varchar(20);
+
+alter table student
+change column age stu_age int;
+
+insert into student values(8,"yash amte",99,"O","jalna",100);
+
+alter table student
+drop column stu_age;
+
+alter table student
+rename to stu;
+
+alter table stu
+rename to student;
